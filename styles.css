@@ -1,0 +1,566 @@
+/******  Custom properties******/
+:root{
+    --blue-color:#1caadf;
+    --green-color: #5bc500;
+    --white-color: #fff;
+    --gray-dark-color:#86888c;
+    --gray-light-color:#e2e2e2;
+    --text-menu-color: #7c7f84;
+    --text-content-color: #50535a;
+    --font:"Raleway", sans-serif;
+    --max-width: 1200px;
+    --header-height: 4rem;
+    --border-radius: .2rem;
+    --margin-bottom-form: 0.5rem;
+    --container-content: 80%;
+    --margin-auto: 0 auto;
+}
+
+/********  Reset  *************/
+html{
+    box-sizing: border-box;
+    font-family: var(--font);
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    overflow-x: hidden;
+    padding-bottom: 4rem;
+}
+
+h1{
+    margin: 0;
+    font-size: 2rem;
+}
+
+h2{
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+h3{
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+h4{
+    margin: 0;
+    font-size: 1rem;
+}
+
+h5{
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+h6{
+    margin: 0;
+    font-size: 0.7rem;
+}
+
+
+
+p{
+    line-height:1.6;
+}
+
+img{
+    margin: 0;
+}
+
+/********  Components *********/
+
+/* ** Menu ** */
+.menu{
+    position: fixed;
+    left: 0;
+    bottom: var(--header-height);
+    width: 100%;
+    background-color: var(--blue-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5S ease;
+}
+
+.menu.is-active
+{
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.menu a
+{
+    padding: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--white-color);
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu a:hover
+{
+    background-color: var(--white-color);
+    color: var(--blue-color);
+}
+
+.primary-menu, .secondary-menu
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-btn
+{
+    outline: thin solid var(--blue-color);
+    border: 0;
+    cursor: pointer;
+    background-color: var(--white-color);
+}
+
+.menu-btn svg
+{
+    fill: var(--blue-color);
+}
+
+@media screen and (min-width:1024px) {
+    .menu-btn{
+        display: none;
+    }
+
+    .menu{
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 85%;
+        background-color: transparent;
+    }
+
+    
+    .primary-menu, .secondary-menu
+    {
+        display: flexbox;
+        flex-direction: row;
+        width: auto;
+        justify-content: space-between ;
+        align-items: center;
+    }
+
+    .primary-menu
+    {
+        width: 70%;
+    }
+
+    .secondary-menu
+    {
+        justify-content: flex-end;
+        width: 30%;
+    }
+
+    .secondary-menu a:last-child
+    {
+        background-color: var(--blue-color);
+        color: var(--white-color);
+        border-radius: var(--border-radius);
+    }
+
+    .menu a
+    {
+        padding: .5rem;
+        font-size: 0.7rem;
+        color: var(--text-menu-color);
+    }
+
+}
+
+
+/* ** Form ** */
+
+.form 
+{
+    padding-top: 15px;
+    width: var(--container-content);
+    margin: 0 auto;
+    margin-top: -70px;
+}
+
+.form-label
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-input
+{
+    width: 200px;
+    height: 2rem;
+    outline: none;
+    color: var(--gray-dark-color);
+    text-align: center;
+    margin-bottom: var(--margin-bottom-form);
+}
+
+.form-btn
+{
+    background-color: var(--green-color);
+    width: 150px;
+    font-weight: bold;
+    color: var(--white-color);
+    border: none;
+    height: 2rem;
+    cursor: pointer;
+    margin-bottom: var(--margin-bottom-form);
+}
+
+.form-checkbox-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-color);
+    font-size: 0.5rem;
+    background-color: var(--gray-dark-color);
+    padding: .3rem;
+}
+
+.form-checkbox
+{
+    border: 1px solid var(--white-color);
+}
+
+@media screen and (min-width: 1024px) {
+    .form
+    {
+        display: flex;
+        flex-direction: column;
+        margin-top: -120px;
+    }
+
+    .form-label
+    {
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .form-checkbox-container
+    {
+        width: 100%;
+        background-color: transparent;
+    }
+}
+
+/* ** Heroimage ** */
+.hero-image
+{
+    background-image: url(assets/hero.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    
+}
+
+.hero-image-message
+{
+    color: var(--white-color);
+    font-size: 2rem;
+    margin: 0;
+    width: var(--container-content);
+    margin: var(--margin-auto);
+    text-align: center;
+    padding-top: 20px;
+}
+
+.hero-image-promo
+{
+    position: relative;
+    left: 80%;
+}
+
+
+
+.hero-image-promo img
+{
+    margin: var(--margin-auto);
+    width: 60px;
+}
+
+@media screen and (min-width: 1024px) {
+    .hero-image
+    {
+        height: 400px;
+        padding-top: 60px;
+    }
+
+    .hero-image-message
+    {
+        font-size: 2.5rem;
+    }
+
+    .hero-image-promo
+    {
+        left: 70%;
+    }
+
+    .hero-image-promo img 
+    {
+        width: 160px;
+    }
+}
+
+
+
+/********  Utilities *********/
+
+.container
+{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-width);
+}
+
+
+
+.none 
+{
+    display: none;
+}
+
+.square-border-white
+{
+    border: 1px solid var(--white-color);
+    border-radius: var(--border-radius);
+    padding: .5rem 1rem;
+    height: 100px;
+}
+
+/********  Site styles *********/
+
+.header
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: .5rem 1rem 1.5rem 1rem;
+    z-index: 999;
+    width: 100%;
+    height: var(--header-height) ;
+    background-color: var(--white-color);
+}
+
+.header > .container
+{
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    
+}
+
+.logo_image
+{
+    height: 2rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .header
+    {
+        position: sticky;
+        top: 0;
+    }
+
+    .logo
+    {
+        width: 15%;
+    }
+}
+
+/* *** Main Message* **/
+
+.main-message
+{
+    width: var(--container-content);
+    margin: var(--margin-auto);
+    margin-top: 30px;
+    color: var(--text-content-color);
+    font-size: 2rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .main-message
+    {
+        width: 60%;
+        margin-top: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ***Current Plans ** */
+
+.current-plan 
+{
+    width: 100% ;
+    background-color: var(--gray-dark-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 30px;
+}
+
+.current-plan-container
+{
+    width: var(--container-content);
+    margin: var(--margin-auto);
+    
+}
+
+.current-plan-title
+{
+    font-size: 1.2rem;
+}
+
+.current-plan-capacity
+{
+    font-size: 3rem;
+}
+
+.current-plan-price
+{
+    font-size: 1.5rem;
+    
+}
+
+/* ** New Plans ** */
+
+.new-plan
+{
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 30px;
+}
+
+.new-plan-description
+{
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.new-plan-data-cap
+{
+    font-size: 4rem;
+    font-weight: bolder;
+    margin-bottom: .2rem;
+}
+
+.new-plan-data-price
+{
+    font-size: 1.5rem;
+}
+
+
+.new-plan-benefits
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.new-plan-benefits2, .new-plan-benefits4
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.new-plan-benefits2 img, .new-plan-benefits4 img
+{
+    width: 35px;
+}
+
+.new-plan-benefits div
+{
+    width: 48%;
+    font-size: .6rem;
+    margin-bottom: 10px;
+}
+
+.new-plan-benefits1  img
+{
+    width: 100px;
+}
+
+.new-plan-benefits3  img
+{
+    width: 80px;
+}
+
+@media screen and (min-width: 1024px){
+    .plans 
+    {
+        display: flex;
+        flex-flow: wrap;
+        width: 95%;
+        margin: var(--margin-auto);
+        
+    }
+
+
+    
+    .current-plan
+    {
+        width: 30%;
+    }
+
+    .new-plan
+    {
+        width: 65%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .new-plan-description
+    {
+        width: 100%;
+    }
+
+    .new-plan-data
+    {
+        width: 50%;
+    }
+
+    .new-plan-data-cap
+    {
+        margin: 0;
+    }
+
+    .new-plan-data-description
+    {
+        font-size: 0.8rem;
+    }
+    .new-plan-benefits
+    {
+        width: 50%;
+    }
+}
+
+
